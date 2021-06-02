@@ -2,7 +2,7 @@
 
 - hosts: webserver
   roles: 
-    - apache
+    - Apache
     - mariadb
     - php
 ...
