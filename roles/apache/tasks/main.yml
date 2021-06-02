@@ -1,25 +1,13 @@
 ---
-# tasks file for apache
 - name: install apache
   yum:
     name: httpd
-    state: installed
+    state: present
 
-- name: create index.html custom
-  copy:
-    src: index.html
-    dest: /var/www/html/index.html
-
-- name: start apache
+- name: start and enable apache
   service:
     name: httpd
     state: started
-
-- name: Reconfigure apache
-  template:
-    src: httpd.conf.j2
-    dest: /etc/httpd/conf/httpd.conf
-   notify:
-     - restart apache
+    enables: yes
 ...
 
